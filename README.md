@@ -27,7 +27,7 @@ A small library of JS modules used to create page components on University of No
 <li><strong>data-img-shadow</strong></li>
 <li><strong>data-img-x</strong></li>
 <li><strong>data-img-y</strong></li>
-<li><strong>data-bg-color</strong></li>
+<li><strong>data-bg-colr</strong></li>
 <li><strong>data-bg-img</strong></li>
 <li><strong>data-bg-grad</strong></li>
 <li><strong>data-bg-attach</strong></li>
