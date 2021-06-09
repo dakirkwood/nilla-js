@@ -6,6 +6,7 @@
 <dl>
 	<dt><code>data-block-content</code></dt>
 	<dd>
+		<h3>Block Content</h3>
       <table>
         <caption>
           Use one of these values (case-sensitive) for the <code>data-block-content</code> attribute in your <code>&lt;section class="u-block"&gt;</code>.
@@ -49,7 +50,8 @@
           </tr>
         </tbody>
       </table>
-
+		<hr />
+		<h3>Card Content</h3>
       <table>
         <caption>
           Use one of these values (case-sensitive) for the <code>data-block-content</code> attribute in your <code>&lt;article class="u-card"&gt;</code>.
@@ -72,7 +74,8 @@
             <td>a box containing a statistic appearing within a <code>Stat_block</code></td>
           </tr>
         </tbody>
-      </table>	
+      </table>
+		<hr />
 	</dd>
 <dt><code>data-block-layout</code></dt>
 	<dd>
@@ -178,6 +181,7 @@
 				</tr>
 			</tbody>
 		</table>
+		<hr />
 		<h3><a name="clo">Card Layout Options</a></h3>
 		<table>
 			<caption><code>Standard_card</code>: Use one of these values (case-sensitive) for the <code>data-block-layout</code> attribute.</caption>
@@ -196,11 +200,9 @@
 				</tr>
 			</tbody>
 		</table>
-
 	</dd>
 <dt><code>data-header-variant</code></dt>
 	<dd>
-		
 	</dd>
 <dt><code>data-mobile-compact</code></dt>
 <dt><code>data-headline</code></dt>
