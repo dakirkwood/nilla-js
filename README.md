@@ -209,29 +209,225 @@
 	</dd>
 <dt><code>data-header-variant</code> Option-Value</dt>
 	<dd>
+		<p>The <code>data-header-variant</code> attribute can be used to select different header styles.</p>
+		<table>
+			<caption> Use one of these values (case-sensitive) for the <code>data-header-variant</code> attribute.</caption>
+			<thead>
+				<th scope="col" width="10%">Value</th>
+				<th scope="col">Description</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>hvA</code></td>
+					<td>Left-aligned, green text with bottom rule.</td>
+				</tr>
+				<tr>
+					<td><code>hvB</code></td>
+					<td>Center-aligned green text with bottom rule.</td>
+				</tr>
+			</tbody>
+		</table>
+		
 	</dd>
-<dt><code>data-mobile-compact</code></dt>
-<dt><code>data-headline</code></dt>
-<dt><code>data-headline-color</code></dt>
-<dt><code>data-headline-url</code></dt>
-<dt><code>data-headline-date</code></dt>
-<dt><code>data-leader</code></dt>
-<dt><code>data-leader-list-tag</code></dt>
-<dt><code>data-leader-list-class</code></dt>
-<dt><code>data-leader-list-items</code></dt>
-<dt><code>data-link-titles</code></dt>
-<dt><code>data-link-urls</code></dt>
-<dt><code>data-link-classes</code></dt>
-<dt><code>data-img-url</code></dt>
-<dt><code>data-img-alt</code></dt>
-<dt><code>data-img-format</code></dt>
-<dt><code>data-img-caption</code></dt>
-<dt><code>data-img-border-width</code></dt>
-<dt><code>data-img-shadow</code></dt>
-<dt><code>data-img-x</code></dt>
-<dt><code>data-img-y</code></dt>
-<dt><code>data-bg-colr</code></dt>
-<dt><code>data-bg-img</code></dt>
-<dt><code>data-bg-grad</code></dt>
+<dt><code>data-mobile-compact</code> Option-Value (boolean)</dt>
+	<dd>
+		<table>
+			<caption> Use one of these values for the <code>data-mobile-compact</code> attribute.</caption>
+			<thead>
+				<th scope="col" width="10%">Value</th>
+				<th scope="col">Description</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>true</code></td>
+					<td>On small screens, the cards can be scrolled through horizontally and take up less vertical space.</td>
+				</tr>
+				<tr>
+					<td><code>false</code></td>
+					<td>Cards are stacked vertically on small screens.</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</dd>
+<dt><code>data-headline</code> Content-Value</dt>
+	<dd>The text provided will be inserted into the block inside an &lt;h2&gt; tag for blocks, &lt;h3&gt; tag for cards.</dd>
+<dt><code>data-headline-color</code> Content-Value</dt>
+	<dd>This value won't be inserted into the content but will be applied inside a <em>style</em> attribute.</dd>
+<dt><code>data-headline-url</code> Content-Value</dt>
+	<dd>If you wish for the headline itself to function as the link, provide the URL with this attribute.</dd>
+<dt><code>data-headline-date</code> Content-Value</dt>
+	<dd>Promote a specific date in your block. The provided text will be inserted along with the headline inside the appropriate tag but wrapped in a <code>&lt;span class="promote-date"&gt;</code> element.</dd>
+<dt><code>data-leader</code> Content-Value</dt>
+	<dd>The provided text will be inserted into the block inside a &lt;p&gt; element.</dd>
+<dt><code>data-leader-list-tag</code> Option-Value</dt>
+	<dd>Choose from <code>&lt;ul&gt;</code> for a bullet list, or <code>&lt;ol&gt;</code> for a numbered list. The default is <code>&lt;ul&gt;</code>.</dd>
+<dt><code>data-leader-list-class</code> Content-Value</dt>
+	<dd>You may enter a custom class name here if you need to target this list to modify the default characteristics.</dd>
+<dt><code>data-leader-list-items</code> Content-Value</dt>
+	<dd>If you have a list of data points to include (such as in a <code>Stat_block</code>), list the text here. Separate each list item with space-pipe-space (' | '). Nilla will break this string into an array and wrap each value inside &lt;li&gt; tags.</dd>
+<dt><code>data-link-titles</code> Content-Value</dt>
+	<dd>Add links to your block or card by providing a list of titles in the order you want them to display. These titles will display as the linked text. Separate each title using space-pipe-space (' | '). Nilla will break this string into an array and wrap each value inside &lt;li&gt; tags.</dd>
+<dt><code>data-link-urls</code> Content-Value</dt>
+	<dd>In the same order as the link titles, provide the list of URLs to match with link-titles. Separate each URL with space-pipe-space (' | '). Nilla will break this string into an array that will be used when processing the link-titles.</dd>
+<dt><code>data-link-classes</code> Option-Value</dt>
+	<dd>In the same order as the link titles, you may provide a list of classes for each link. Separate each class name with a space-pipe-space (' | '). Nilla will break this string into an array that will be used when processing the link-titles. Each value can be comprised from the available class names listed below separated by a space (' ').<br />Example: [size] [color] [icon] <br /><code>"small clean chevron | small green arrow | (etc)"</code>
+        <h3>Size Classes</h3>
+		<table>
+            <caption>Available these values for the <code>data-link-classes</code> attribute.</caption>
+            <thead>
+                <th scope="col" width="10%">Value</th>
+                <th scope="col">Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>small</code> (default)</td>
+                    <td>Small text, best for blocks and cards displaying several other elements.</td>
+                </tr>
+                <tr>
+                    <td><code>standard</code></td>
+                    <td>Larger, works best in text-only blocks. Not recommended for cards.</td>
+                </tr>
+                 <tr>
+                    <td><code>large</code></td>
+                    <td>Need ample space, not a best choice for blocks. Not recommende for cards.</td>
+                </tr>
+             </tbody>
+        </table>
+		<hr />
+		<h3>Color Classes</h3>
+		<table>
+            <caption>Available these values for the <code>data-link-classes</code> attribute.</caption>
+            <thead>
+                <th scope="col" width="10%">Value</th>
+                <th scope="col">Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>clean</code></td>
+                    <td>No background color with dark text.</td>
+                </tr>
+                <tr>
+                    <td><code>gray</code> (default)</td>
+                    <td>Light gray background with dark text.</td>
+                </tr>
+                <tr>
+                    <td><code>green</code></td>
+                    <td>Green background with white text.</td>
+                </tr>
+           </tbody>
+        </table>
+		<hr />
+		<h3>Icon Classes</h3>
+		<table>
+            <caption>Available values for the <code>data-link-classes</code> attribute.</caption>
+            <thead>
+                <th scope="col" width="10%">Value</th>
+                <th scope="col">Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>chevron</code> (default)</td>
+                    <td>inserts a chevron icon.</td>
+                </tr>
+                <tr>
+                    <td><code>arrow</code></td>
+                    <td>Inserts an arrow icon.</td>
+                </tr>
+            </tbody>
+        </table>
+</dd>
+<dt><code>data-img-url</code> Content-Value</dt>
+	<dd>Provide the URL of the image you wish to have inserted. Only processed with <code>Image_block</code> sections, or <code>Standard_card</code> articles with the <code>sclA</code> layout attribute value.</dd>
+<dt><code>data-img-alt</code> Content-Value</dt>
+	<dd>Provide the alt text to be inserted into the HTML for accessibility.</dd>
+<dt><code>data-img-format</code> Option-Value</dt>
+	<dd>Select how the image should be formatted from the options listed below.
+		<table>
+            <caption>Available formats for the <code>data-img-format</code> attribute.</caption>
+            <thead>
+                <th scope="col" width="10%">Value</th>
+                <th scope="col">Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>portrait</code></td>
+                    <td>Formats the image as a vertical 8x10. Good for people. (ratio 3:4)</td>
+                </tr>
+                <tr>
+                    <td><code>square</code></td>
+                    <td>Formats the image as a square. (ratio 1:1)</td>
+                </tr>
+                <tr>
+                    <td><code>landscape</code> (default)</td>
+                    <td>Formats the image as a horizontal 8x10. (ratio 4:3)</td>
+                </tr>
+                <tr>
+                    <td><code>wide</code></td>
+                    <td>Formats the image similar to a 1980 X 1020. (ratio 16:9)</td>
+                </tr>
+                <tr>
+                    <td><code>circle</code></td>
+                    <td>Clips the image to a circle. (ratio 1:1)</td>
+                </tr>
+            </tbody>
+        </table>
+	<hr />
+	</dd>
+<dt><code>data-img-caption</code> Option-Value (boolean)</dt>
+	<dd>
+		<table>
+            <caption>Available values for the <code>data-img-caption</code> attribute.</caption>
+            <thead>
+                <th scope="col" width="10%">Value</th>
+                <th scope="col">Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>true</code> (default)</td>
+                    <td>Displays the alt text as a figure caption.</td>
+                </tr>
+                <tr>
+                    <td><code>false</code></td>
+                    <td>No figure caption, but alt text will still be inserted into the markup.</td>
+                </tr>
+            </tbody>
+        </table>
+	<hr />
+	</dd>
+<dt><code>data-img-border-width</code> Content-Value</dt>
+	<dd>In some blocks, you can provide a border width for the image in pixels. Provide only the number, no units. Nilla will add the 'px' unit when processing. Max width is 10.</dd>
+<dt><code>data-img-shadow</code> Option-Value (boolean)</dt>
+	<dd>In some blocks, you can display a shadow around the image. Provide only the number of in terms of spread (shadow size), no units. Nilla will add the 'px' unit when processing.</dd>
+<dt><code>data-img-x</code> Content-Value</dt>
+	<dd>If necessary, you can move the image horizontally within the display frame. Small numbers move the image left; large numbers move the image right. Nilla provides a default of 50 which is centered.</dd>
+<dt><code>data-img-y</code> Content-Value</dt>
+	<dd>If necessary, you can move the image vertically within the display frame. Small numbers move the image up; large numbers move the image down. Nilla provides a default of 50 which is centered.</dd>
+<dt><code>data-bg-colr</code> Content-Value</dt>
+	<dd>If you need to provide a specific background color to a block, add the Hex here. Nilla will insert it into a <code>style=""</code> attribute</dd> in the tag.
+	<dt><code>data-bg-img</code> Content-Value</dt>
+	<dd>You can provide a URL of a background image for your block.</dd>
+<dt><code>data-bg-grad</code> Content-Value</dt>
+	<dd>You can provide the CSS gradient markup to be applied to the background if necessary.</dd>
 <dt><code>data-bg-attach</code></dt>
+	<dd>By default, background images will scroll with the element. You can also choose to have it fixed.
+		<table>
+            <caption>Available options for the <code>data-bg-attach</code> attribute.</caption>
+            <thead>
+                <th scope="col" width="10%">Value</th>
+                <th scope="col">Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>scroll</code> (default)</td>
+                    <td>Background image scrolls with the element.</td>
+                </tr>
+                <tr>
+                    <td><code>false</code></td>
+                    <td>Image is fixed to the background while text and other elements scroll over the top.</td>
+                </tr>
+            </tbody>
+        </table>
+		<hr />
+	</dd>
 </dl>
