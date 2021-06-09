@@ -3,8 +3,14 @@
 <h2>Intro</h2>
 <p>The purpose of this library is to provide a way to generate the HTML for various block and card level page components. Block-level components are added to the page using &lt;section&gt; tags; card-level components are added using &lt;article&gt; tags. Attributes are added using a specific list of data-* attributes. NillaJS processes these data-* attributes and outputs the raw HTML that can then be styled. Using this system provides consistent markup across all components allowing for easier long-term management of CSS and code.</p>
 <h2>Attribute List</h2>
+<p>About the attribute values:</p>
+<ul>
+	<li>Attributes marked with an asterisk (*) are required values.</li>
+	<li>'Option-Value' attributes are inserted into the classList and must be selected from one of the supported options.</li>
+	<li>'Content-Value' attributes will be inserted as content.</li>
+</ul>
 <dl>
-	<dt><code>data-block-content</code></dt>
+	<dt><code>data-block-content</code>* Option-Value</dt>
 	<dd>
 		<h3>Block Content</h3>
       <table>
@@ -77,7 +83,7 @@
       </table>
 		<hr />
 	</dd>
-<dt><code>data-block-layout</code></dt>
+<dt><code>data-block-layout</code>* Option-Value</dt>
 	<dd>
 		<h3>Block Layout Options</h3>
 		<table>
@@ -201,7 +207,7 @@
 			</tbody>
 		</table>
 	</dd>
-<dt><code>data-header-variant</code></dt>
+<dt><code>data-header-variant</code> Option-Value</dt>
 	<dd>
 	</dd>
 <dt><code>data-mobile-compact</code></dt>
