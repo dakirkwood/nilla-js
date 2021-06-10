@@ -2,6 +2,17 @@
 <p>A small library of JS modules used to create page components on University of North Texas websites.</p>
 <h2>Intro</h2>
 <p>The purpose of this library is to provide a way to generate the HTML for various block and card level page components. Block-level components are added to the page using &lt;section&gt; tags; card-level components are added using &lt;article&gt; tags. Attributes are added using a specific list of data-* attributes. NillaJS processes these data-* attributes and outputs the raw HTML that can then be styled. Using this system provides consistent markup across all components allowing for easier long-term management of CSS and code.</p>
+<h2>Code Examples</h2>
+<p>To get a feel for how to construct a module, cut and paste the examples below into the HTML of your page.</p>
+<p>Example 1:</p>
+<pre>
+&lt;section class="u-block"
+	data-block-content="Image_block"
+	data-block-layout="iblC"
+	data-headline="This is a nifty block."
+&gt; &lt;/section&gt;
+</pre>
+<hr />
 <h2>Attribute List</h2>
 <dl>
   <dt>Select-Option</dt>
@@ -412,7 +423,6 @@
         </tr>
       </tfoot>
     </table>
-    <hr />
     <h3>Color Classes</h3>
     <table>
       <caption>
@@ -444,7 +454,6 @@
         </tr>
       </tfoot>
     </table>
-    <hr />
     <h3>Icon Classes</h3>
     <table>
       <caption>
@@ -559,10 +568,10 @@
   <dd>In some blocks, you can display a shadow around the image. Provide only the number of in terms of spread (shadow size), no units. Nilla will add the 'px' unit when processing.</dd>
   <hr />
   <dt id="img-x"><code>data-img-x</code> (optional) User-Input</dt>
-  <dd>If necessary, you can move the image horizontally within the display frame. Small numbers move the image left; large numbers move the image right. Nilla provides a default of 50 which is centered.</dd>
+  <dd>default value: 50 <br /> If necessary, you can move the image horizontally within the display frame. Small numbers move the image left; large numbers move the image right. Nilla provides a default of 50 which is centered.</dd>
   <hr />
   <dt id="img-y"><code>data-img-y</code> (optional) User-Input</dt>
-  <dd>If necessary, you can move the image vertically within the display frame. Small numbers move the image up; large numbers move the image down. Nilla provides a default of 50 which is centered.</dd>
+  <dd>default value: 50 <br /> If necessary, you can move the image vertically within the display frame. Small numbers move the image up; large numbers move the image down. Nilla provides a default of 50 which is centered.</dd>
   <hr />
   <dt id="bg-colr"><code>data-bg-colr</code> (optional) User-Input</dt>
   <dd>If you need to provide a specific background color to a block, add the Hex here. Nilla will insert it into a <code>style=""</code> attribute in the tag.</dd>
@@ -574,7 +583,7 @@
   <dd>You can provide the CSS gradient markup to be applied to the background if necessary.</dd>
   <hr />
   <dt id="bg-attach"><code>data-bg-attach</code> optional, Select-Option</dt>
-  <dd>By default, background images will scroll with the element. You can also choose to have it fixed.
+  <dd><p>By default, background images will scroll with the element. You can also choose to have it fixed.</p>
     <table>
       <caption>
       Available options for the <code>data-bg-attach</code> attribute.
