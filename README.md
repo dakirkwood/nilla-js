@@ -226,8 +226,7 @@
 					<td>Center-aligned green text with bottom rule.</td>
 				</tr>
 			</tbody>
-		</table>
-		
+		</table>		
 	</dd>
 <dt><code>data-mobile-compact</code> Option-Value (boolean)</dt>
 	<dd>
@@ -247,8 +246,7 @@
 					<td>Cards are stacked vertically on small screens.</td>
 				</tr>
 			</tbody>
-		</table>
-		
+		</table>		
 	</dd>
 <dt><code>data-headline</code> Content-Value</dt>
 	<dd>The text provided will be inserted into the block inside an &lt;h2&gt; tag for blocks, &lt;h3&gt; tag for cards.</dd>
