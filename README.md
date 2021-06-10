@@ -402,7 +402,7 @@
 <dt><code>data-img-y</code> Content-Value</dt>
 	<dd>If necessary, you can move the image vertically within the display frame. Small numbers move the image up; large numbers move the image down. Nilla provides a default of 50 which is centered.</dd>
 <dt><code>data-bg-colr</code> Content-Value</dt>
-	<dd>If you need to provide a specific background color to a block, add the Hex here. Nilla will insert it into a <code>style=""</code> attribute</dd> in the tag.
+	<dd>If you need to provide a specific background color to a block, add the Hex here. Nilla will insert it into a <code>style=""</code> attribute in the tag.</dd>
 	<dt><code>data-bg-img</code> Content-Value</dt>
 	<dd>You can provide a URL of a background image for your block.</dd>
 <dt><code>data-bg-grad</code> Content-Value</dt>
