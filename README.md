@@ -1,17 +1,24 @@
 # nilla-js
-<p>A small library of JS modules used to create page components on University of North Texas websites.</p>
-<h2>Intro</h2>
-<p>The purpose of this library is to provide a way to generate the HTML for various block and card level page components. Block-level components are added to the page using &lt;section&gt; tags; card-level components are added using &lt;article&gt; tags. Attributes are added using a specific list of data-* attributes. NillaJS processes these data-* attributes and outputs the raw HTML that can then be styled. Using this system provides consistent markup across all components allowing for easier long-term management of CSS and code.</p>
-<h2>Code Examples</h2>
-<p>To get a feel for how to construct a module, cut and paste the examples below into the HTML of your page.</p>
-<p>Example 1:</p>
-<pre>
-&lt;section class="u-block"
+
+A small library of JS modules used to create page components on University of North Texas websites.
+
+## Intro
+
+The purpose of this library is to provide a way to generate the HTML for various block and card level page components. Block-level components are added to the page using &lt;section&gt; tags; card-level components are added using &lt;article&gt; tags. Attributes are added using a specific list of data-* attributes. NillaJS processes these data-* attributes and outputs the raw HTML that can then be styled. Using this system provides consistent markup across all components allowing for easier long-term management of CSS and code.
+
+## Code Examples
+
+To get a feel for how to construct a module, cut and paste the examples below into the HTML of your page.
+
+Example 1:
+
+```
+<section class="u-block"
 	data-block-content="Image_block"
 	data-block-layout="iblC"
 	data-headline="This is a nifty block."
-&gt; &lt;/section&gt;
-</pre>
+> </section>
+```
 <hr />
 <h2>Attribute List</h2>
 <dl>
