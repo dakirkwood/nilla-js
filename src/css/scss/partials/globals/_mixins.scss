@@ -1,0 +1,45 @@
+// SCREEN VARIABLES untwc
+$untwc_tiny_phone: 599px;
+$untwc_phone: 750px;
+$untwc_tablet: 900px;
+$untwc_desktop: 1200px;
+$untwc_large: 1400px;
+
+// IMAGE FORMATS
+$circle: calc(100% * 1);
+$landscape: calc(100% * (3 / 4));
+$portrait: calc(100% * (4 / 3));
+$square: calc(100% * 1);
+$wide: calc(100% * (9 / 16));
+
+@mixin img_format( $equation ){
+  padding-top: $equation;
+}
+
+
+// MEDIA QUERIES
+@mixin phone {
+  @media only screen and (min-width: #{$untwc_tiny_phone}) {// and (max-width: $untwc_phone)
+    @content;
+  }
+}
+@mixin tablet {
+  @media only screen and (min-width: #{$untwc_phone + 1px}) and (max-width: #{$untwc_desktop - 1px}) {
+    @content;
+  }
+}
+@mixin tablet_and_above {
+  @media only screen and (min-width: #{$untwc_phone + 1px}){
+    @content;
+  }
+}
+@mixin desktop {
+  @media only screen and (min-width: #{$untwc_tablet + 1px}) {
+    @content;
+  }
+}
+@mixin large {
+  @media only screen and (min-width: #{$untwc_desktop + 1px}) {
+    @content;
+  }
+}

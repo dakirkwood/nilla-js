@@ -1,0 +1,23 @@
+// 2021 RE-BRAND
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap');
+
+// GLOBAL SETTINGS AND DEFAULTS
+@import "partials/globals/colors";
+@import "partials/globals/mixins";
+@import "partials/globals/defaults";
+
+// COMPONENT STYLES
+@import "partials/u-block";
+@import "partials/u-card";
+@import "partials/Date_block";
+@import "partials/Date_card";
+@import "partials/Grid_block";
+@import "partials/Image_block";
+@import "partials/Image_card";
+@import "partials/Link_block";
+@import "partials/Quote_block";
+@import "partials/Stat_block";
+@import "partials/Stat_card";
+@import "partials/Text_block";
+@import "partials/Text_card";
