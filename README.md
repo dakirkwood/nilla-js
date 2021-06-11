@@ -19,14 +19,12 @@ Example 1:
 	data-headline="This is a nifty block."
 > </section>
 ```
-<hr />
-<h2>Attribute List</h2>
-<dl>
-  <dt>Select-Option</dt>
-  <dd>Select from one of the supported options.</dd>
-  <dt>User-Input</dt>
-  <dd>Value will be used in the output.</dd>
-</dl>
+
+## Attribute List
+
+- **Select-Option**: Select from one of the supported options.
+- **User-Input**: Value will be used in the output.
+
 <hr />
 <dl>
   <dt id="block-content"><code>data-block-content</code> &mdash; REQUIRED, Select-Option</dt>
