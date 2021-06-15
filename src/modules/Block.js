@@ -109,15 +109,18 @@ export default class Block {
 
         // Process any cards if this is a grid.
         let cards = this.get_cards();
+        let cards_output = '';
 
         // Assemble the HTML for the cards
-        let cards_output = this._mobileCompact === 'true' ? `<div class="cards mobile-swipe">` : `<div class="cards">`;
+        if(cards.length > 0){
+            cards_output = this._mobileCompact === 'true' ? `<div class="cards mobile-swipe">` : `<div class="cards">`;
 
-        cards.forEach( (card) => {
-            cards_output += new Card( card.dataset, this._mobileCompact ).render();
-        });
+            cards.forEach( (card) => {
+                cards_output += new Card( card.dataset, this._mobileCompact ).render();
+            });
 
-        cards_output += `</div><!-- /.cards -->`;
+            cards_output += `</div><!-- /.cards -->`;
+        }
 
         // Assemble the output.
         html += `
