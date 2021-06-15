@@ -51,9 +51,9 @@ class Header {
                 ${ this._links.render() }
         `;
 
-        if(this._type[0] === 'Title_card' && this._type[1] !== 'tclB'){
-            return html;
-        }
+        // if(this._type[0] === 'Title_card' && this._type[1] !== 'tclB'){
+        //     return html;
+        // }
         return `<header>${ html }</header>`;
     }
 }
