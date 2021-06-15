@@ -20,6 +20,10 @@ function Title(_type, _tag, _text, _color = '', _url = null) {
     // Replace '*/*' with <br /> tag.
     _text = _text.replace(/\*\/\*/, '<br />');
 
+    // Wrap the text after '*fw' in a "first-word" <span>.
+    let first_word = /\*fw(\w+)\s/;
+    _text = _text.replace(first_word, "<span class=\"first-word\">" + first_word[1] + "</span>");
+
     // Create the style attribute if _color is provided.
     let shadow = _color === 'white' ? 'black' : 'white';
     let color = _color !== '' ? `style="color:${_color};text-shadow:0 0 5px ${shadow};"` : '';
