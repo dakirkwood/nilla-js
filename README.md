@@ -1,22 +1,164 @@
 # nilla-js
 
-A small library of JS modules used to create page components on University of North Texas websites.
+A factory script used to create page components for University of North Texas websites.
 
 ## Intro
 
-The purpose of this library is to provide a way to generate the HTML for various block and card level page components. Block-level components are added to the page using &lt;section&gt; tags; card-level components are added using &lt;article&gt; tags. Attributes are added using a specific list of data-* attributes. NillaJS processes these data-* attributes and outputs the raw HTML that can then be styled. Using this system provides consistent markup across all components allowing for easier long-term management of CSS and code.
+NillaJS is a factory script used to generate a consistent HTML structure for various block and card level page components. Block-level components are added to the page using &lt;section&gt; tags. Card-level components are added as children to block-level tags using &lt;article&gt; tags. Attributes are added using a specific list of data-* attributes. NillaJS processes these data-* attributes and outputs the raw HTML that can then be styled. Having consistent markup across all components allows for easier long-term management of CSS and code.
 
+## The Concept
+
+The purpose of NillaJS is to provide consistent HTML structure for page modules/components. Block-level modules are constructed from &lt;section&gt; tags while Card-level modules are constructed from &lt;article&gt; tags. No actual contect is added; NillaJS will use the values from the data- attributes to construct the HTML output. For example, the following input:
+```angular2html
+<section class="u-block" 
+         data-block-type="Image_block iblA" 
+         data-headline="Don't lose your Aid" 
+         data-leader="Did you know factors such as grades, residency, course load, and attendance can affect your loans, scholarships and more? Learn how to stay eligible for your financial aid" 
+         data-img-url="/templating/img/20_0304_Fall-stock0070_1200w.jpg" 
+         data-img-alt="Fall Campus colors." 
+         data-img-format="landscape" 
+         data-link-urls="https://financialaid.unt.edu" 
+         data-link-titles="Learn about Award Requirements" 
+         ></section>
+```
+…produces the following output:
+```angular2html
+<section class="u-block Image_block">
+    <div class="block-content">
+        <figure>
+            <div class="media-frame" style="">
+                <div class="crop-box landscape">
+                    <img srcset="/templating/img/20_0304_Fall-stock0070_600w.jpg 600w,
+                         /templating/img/20_0304_Fall-stock0070_1200w.jpg 1200w,
+                         /templating/img/20_0304_Fall-stock0070_1600w.jpg 1600w" sizes="(max-width: 600px) 600px, (max-width: 1200px) 1200px, 1600px" src="/templating/img/20_0304_Fall-stock0070_1200w.jpg" alt="Fall Campus colors." style="width:100%; height:100%; top:0; object-fit:cover; object-position:50% 50%; position:absolute;" loading="lazy">
+                </div><!-- /.crop-box -->
+            </div><!-- /.media-frame -->
+            <figcaption></figcaption>
+        </figure>
+        <header>
+            <h2>Don't lose your Aid</h2>
+            <hr>
+            <p class="leader">Did you know factors such as grades, residency, course load, and attendance can affect your loans, scholarships and more? Learn how to stay eligible for your financial aid</p>
+            <ul class="btn-list"><li><a class="btn" href="https://financialaid.unt.edu" title="Learn about Award Requirements" target="">Learn about Award Requirements<span class="material-icons">chevron_right</span></a></li></ul><!-- /.btn-list -->
+        </header>
+        <div class="cards"></div><!-- /.cards -->
+    </div><!-- /.block-content -->
+</section>
+```
+The following input for a typical `Grid_block`:
+```angular2html
+<section class="u-block Grid_block">
+    <div class="block-content">
+        <header>
+            <h2>[title]</h2>
+            <p>[leader]</p>
+        </header>
+        <div class="cards">
+            <article>
+                <header>
+                    <h3>[title]</h3>
+                    <p>[leader]</p>
+                    <ul>[link list]</ul>
+                </header>
+            </article>
+            <article></article>
+            <article></article>
+        </div>
+    </div>
+</section>
+```
+…produces the following HTML output:
+```angular2html
+<section class="u-block" 
+         data-block-type="Grid_block gbl3" 
+         data-headline="Students" 
+         data-leader="Find out what you need to know for registering courses and making the most of your time at UNT.">
+            
+            <article 
+                    data-block-type="Title_card" 
+                    data-headline="Registering for Classes" 
+                    data-leader="Find out what to do before, during and after registration to stay on track towards your degree." 
+                    data-link-urls="https://registrar.unt.edu" 
+                    data-link-titles="About Registering"></article>
+            
+            <article data-block-type="Title_card" 
+                    data-headline="Transcripts and Records" 
+                    data-leader="Order a transcript or update your personal or residency information." 
+                    data-link-urls="https://registrar.unt.edu" 
+                    data-link-titles="About Transcripts"></article>
+            
+            <article data-block-type="Title_card" 
+                     data-headline="Online Degree Audit" 
+                     data-leader="Find out what you still have to take to stay on track." 
+                     data-link-urls="https://registrar.unt.edu" 
+                     data-link-titles="About Degree Audits"></article>
+            
+         </section>
+```
+…produces the following HTML output:
+```angular2html
+<section class="u-block Grid_block gbl3">
+   <div class="block-content">
+      <header>
+        <h2>Students</h2>
+        <hr>
+        <p class="leader">Find out what you need to know for registering courses and making the most of your time at UNT.</p>
+      </header>
+      <div class="cards">
+          <article class="card Title_card ">
+            <h3>Registering for Classes</h3>
+            <hr>
+            <p class="leader">Find out what to do before, during and after registration to stay on track towards your degree.</p>
+            <ul class="btn-list">
+                <li>
+                    <a class="btn" href="https://registrar.unt.edu" title="About Registering" target="">About Registering<span class="material-icons">chevron_right</span>
+                    </a>
+                </li>
+            </ul><!-- /.btn-list -->
+          </article>
+          <article class="card Title_card ">
+              <h3>Transcripts and Records</h3>
+              <hr>
+              <p class="leader">Order a transcript or update your personal or residency information.</p>
+              <ul class="btn-list">
+                  <li>
+                      <a class="btn" href="https://registrar.unt.edu" title="About Transcripts" target="">About Transcripts<span class="material-icons">chevron_right</span>
+                      </a>
+                  </li>
+              </ul><!-- /.btn-list -->
+          </article>
+          <article class="card Title_card ">
+              <h3>Online Degree Audit</h3>
+                <hr>
+                <p class="leader">Find out what you still have to take to stay on track.</p>
+                <ul class="btn-list">
+                    <li>
+                        <a class="btn" href="https://registrar.unt.edu" title="About Degree Audits" target="">About Degree Audits<span class="material-icons">chevron_right</span>
+                        </a>
+                    </li>
+                </ul><!-- /.btn-list -->
+          </article>
+        </div><!-- /.cards -->
+      </div><!-- /.block-content -->
+</section>
+```
 ## Code Examples
 
 To get a feel for how to construct a module, cut and paste the examples below into the HTML of your page.
 
 Example 1:
 
-```
-<section class="u-block"
-	data-block-content="Image_block"
-	data-block-layout="iblC"
-	data-headline="This is a nifty block."
+```angular2html
+<section class="u-block" 
+         data-block-content="Image_block" 
+         data-block-layout="iblA" 
+         data-headline="An Image Block"
+         data-leader="This is an Image_block, layout A"
+         data-link-titles="Link1 to info | Link2 to info"
+         data-link-urls="/url1 | /url2"
+         data-img-url=""
+         data-img-alt=""
+         data-img-format=""
 > </section>
 ```
 
