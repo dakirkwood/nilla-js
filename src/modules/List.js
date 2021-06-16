@@ -12,12 +12,13 @@
  *  _list_items (string)
  *
  */
+import { delimiter } from "./Delimiter";
 
 export default class List {
     constructor(_tag = '', _class, _listItems = null){
         this._tag = _tag ? _tag : 'ul';
         this._class = _class ? _class : '';
-        this._listItems = _listItems ? _listItems.split(' | ') : [];
+        this._listItems = _listItems ? _listItems.split(delimiter) : [];
     }
 
     render(){

@@ -29,11 +29,13 @@ class Header {
         _lkUrls = null,
         _lkTtls = null,
         _lkTgts = null,
+        _lkClas = null,
+        _lkIcns = null,
     ) {
         this._title = _headline ? Title(_type, _headlineTag, _headline, _headlineColor, _headlineUrl) : '';
         this._leader = _leader ? Leader(_leader) : '';
         this._leaderList = _leaderListItems ? new List(_leaderListTag, _leaderListClass, _leaderListItems) : null;
-        this._links = new Linklist('ul','btn', _lkTtls, _lkUrls, _lkTgts);
+        this._links = new Linklist('ul', 'btn', _lkTtls, _lkUrls, _lkTgts, _lkClas, _lkIcns);
         this._type = _type;
     }
     render() {

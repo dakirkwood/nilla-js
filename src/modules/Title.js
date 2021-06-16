@@ -22,7 +22,10 @@ function Title(_type, _tag, _text, _color = '', _url = null) {
 
     // Wrap the text after '*fw' in a "first-word" <span>.
     let first_word = /\*fw(\w+)\s/;
-    _text = _text.replace(first_word, "<span class=\"first-word\">" + first_word[1] + "</span>");
+    let fw = _text.match(first_word);
+    if(fw){
+        _text = _text.replace(first_word, "<span class=\"first-word\">" + fw[1] + "</span> ");
+    }
 
     // Create the style attribute if _color is provided.
     let shadow = _color === 'white' ? 'black' : 'white';

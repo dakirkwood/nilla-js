@@ -31,6 +31,13 @@ class Background {
      * @returns {string}
      */
     render(){
+        // Return an empty string if no background values were supplied.
+        let val_check = '';
+        for(const property in this){
+            val_check += this[property];
+            if(val_check === ''){ return ''; }
+        }
+
         let bgImg = this._gradient ? `url(${this._uri}), ${this._gradient}` : `url(${this._uri})`;
         return `background-attachment: ${this._attachment}; background-color: ${this._color};background-image: ${bgImg};`;
     }

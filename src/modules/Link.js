@@ -18,9 +18,9 @@ import Icon from "./Icon.js";
 
 class Link {
     constructor(
-        _tag = 'a',
+        _tag = 'a', // Accepts 'h2', 'h3' and 'button' as options.
         _class = '',
-        _target = 'self',
+        _target = 'self', // Accepts 'blank' as an option.
         _text = 'Text',
         _title = 'Title',
         _url = '_url',
@@ -38,8 +38,8 @@ class Link {
     }
     render(){
         // Icon markup.
-        let arrow_icon = `<span class="material-icons">arrow_forward</span>`;
-        let chevron_icon = `<span class="material-icons">chevron_right</span>`;
+        //let arrow_icon = `<span class="material-icons">arrow_forward</span>`;
+        //let chevron_icon = `<span class="material-icons">chevron_right</span>`;
         //let icon = `<span class="material-icons chevron">&#10095;</span>`;
         let icon = Icon(this._icon, this._icon_color);
 

@@ -16,6 +16,7 @@
  */
 import Link from "./Link";
 import List from "./List";
+import { delimiter } from "./Delimiter";
 
 class Linklist extends List {
     constructor(
@@ -29,10 +30,10 @@ class Linklist extends List {
     ) {
         super(_tag,_class,_listItems);
 
-        this._urls = _urls ? _urls.split(', ') : [];
-        this._targets = _targets ? _targets.split(', ') : [];
-        this._classes = _classes ? _classes.split(', ') : [];
-        this._icons = _icons ? _icons.split(', ') : [];
+        this._urls = _urls ? _urls.split(delimiter) : [];
+        this._targets = _targets ? _targets.split(delimiter) : [];
+        this._classes = _classes ? _classes.split(delimiter) : [];
+        this._icons = _icons ? _icons.split(delimiter) : [];
     }
 
     /**
@@ -56,7 +57,7 @@ class Linklist extends List {
             let icon = this._icons.length > 0 ? this._icons[i] : '';
 
             // Create a Link object.
-            let l = new Link('a', this._class, target, link_text, link_text, url, link_class, icon);
+            let l = new Link('a', link_class, target, link_text, link_text, url, icon);
 
             // Append to the HTML output.
             links += `<li>${ l.render() }</li>`;

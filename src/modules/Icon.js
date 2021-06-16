@@ -1,8 +1,8 @@
 /**
  * Returns the HTML for the desired icon.
  *
- * @param icon {string}
- * @param color {string}
+ * @param icon {string} Accepts 'arrow' and 'chevron_right' as options.
+ * @param color {string} Accepts hexadecimal values.
  * @returns {string}
  *
  */

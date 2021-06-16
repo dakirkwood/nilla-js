@@ -20,7 +20,8 @@ import Header from "./Header";
 export default class Block {
     constructor( dataset, children ) {
 
-        this._type = dataset.blockType && dataset.blockType.length > 0 ? dataset.blockType.split(' ') : [];
+        this._type = dataset.blockContent && dataset.blockContent.length > 0 ? dataset.blockType : '';
+        this._layout = dataset.blockLayout && dataset.blockLayout.length > 0 ? dataset.blockLayout : '';
         this._list = dataset.leaderListItems ? dataset.leaderListItems : null;
         this._listClass = dataset.leaderListClass ? dataset.leaderListClass : '';
         this._header = new Header(
@@ -95,11 +96,12 @@ export default class Block {
         let imageRight = '';
 
         // Process the image if there is one
-        if(this._type[0] === 'Image_block' && this._img){
+        if(this._type === 'Image_block' && this._img){
             if(
                 //this._type.find(string => string === 'iblB') ||
                 //this._type.find(string => string === 'iblD')
-                this._type.indexOf('iblB') !== -1 || this._type.indexOf('iblD') !== -1
+                //this._type.indexOf('iblB') !== -1 || this._type.indexOf('iblD') !== -1
+                this._layout !== 'iblB' || this._layout !== 'iblD'
                 ){
                 imageRight = this._img.render();
             } else {
@@ -145,6 +147,7 @@ export class Card extends Block {
     constructor(dataset, mobile_compact) {
         super(dataset);
 
+        this._type = dataset.blockContent && dataset.blockContent.length > 0 ? dataset.blockContent : '';
         this._header = new Header(
             this._type,
             'h3',
@@ -159,13 +162,14 @@ export class Card extends Block {
             dataset.linkTitles
         );
         this._mobileCompact = mobile_compact;
+        //console.log(this._layout);
     }
     render(){
         let html = '';
         let img = '';
 
         // Generate the HTML for the image if included.
-        if(this._type[0] === 'Image_card' && this._img){
+        if(this._type === 'Image_card' && this._img){
             img += this._img.render();
         }
 
@@ -173,7 +177,7 @@ export class Card extends Block {
         let mobile = this._mobileCompact === 'true' ? 'mobile-swipe' : '';
 
         html = `
-            <article class="card ${this._type.join(' ') } ${ mobile }">
+            <article class="card ${this._type} ${this._layout} ${ mobile }">
                 ${ img }
                 ${ this._header.render() }
             </article>
