@@ -1,11 +1,12 @@
 {
   "name": "nilla-js",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A library of JS modules for creating page components on University of North Texas websites.",
-  "main": "./src/index.js",
+  "main": "dist/nilla.js",
   "scripts": {
     "start": "./node_modules/.bin/webpack --config webpack.dev.js -w",
-    "build": "./node_modules/.bin/webpack --config webpack.prod.js"
+    "build": "./node_modules/.bin/webpack --config webpack.prod.js",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
