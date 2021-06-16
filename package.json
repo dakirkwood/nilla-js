@@ -1,6 +1,6 @@
 {
   "name": "nilla-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A library of JS modules for creating page components on University of North Texas websites.",
   "main": "dist/nilla.js",
   "scripts": {
