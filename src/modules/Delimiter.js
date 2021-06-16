@@ -1,0 +1,3 @@
+const delimiter = ' | ';
+
+export { delimiter };
